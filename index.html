@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>El Castillo Ambulante</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Garamond:wght@400;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Playfair Display', 'Garamond', serif;
+            overflow: hidden;
+            background: #1a1a2e;
+        }
+
+        /* Fondo con estilo mágico */
+        .background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background-image: url('https://images.unsplash.com/photo-1518791841217-8f162f1e1131?q=80&w=2070&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            filter: brightness(0.5) contrast(1.1) sepia(0.2);
+            z-index: -2;
+        }
+
+        /* Efecto de luz mágica flotando */
+        .light-effect {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: radial-gradient(circle at 20% 30%, rgba(255, 223, 186, 0.25) 0%, transparent 40%),
+                        radial-gradient(circle at 80% 70%, rgba(186, 223, 255, 0.2) 0%, transparent 40%);
+            z-index: -1;
+            animation: glow 8s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from { opacity: 0.7; transform: scale(1); }
+            to { opacity: 1; transform: scale(1.05); }
+        }
+
+        /* Estilo del texto */
+        .text-container {
+            text-shadow: 0 0 15px rgba(255, 255, 255, 0.6), 2px 2px 8px rgba(0,0,0,0.8);
+            line-height: 1.8;
+        }
+
+        .fragment {
+            display: inline-block;
+            opacity: 0;
+            transform: translateY(30px) scale(0.95);
+            transition: all 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            color: #fff8e7;
+        }
+
+        .fragment.show {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+
+        .line-break {
+            display: block;
+            height: 0.8em;
+        }
+
+        .heart {
+            color: #ffb6c1;
+            text-shadow: 0 0 10px #ff69b4;
+        }
+    </style>
+</head>
+<body class="flex items-center justify-center h-screen">
+
+    <div class="background"></div>
+    <div class="light-effect"></div>
+
+    <div class="content px-8 text-center max-w-3xl">
+        <div class="text-container text-2xl md:text-3xl lg:text-4xl" id="text">
+            <span class="fragment">necesito</span>
+            <span class="fragment">verte</span>
+            <span class="fragment">pero</span>
+            <span class="fragment">no</span>
+            <span class="fragment">te</span>
+            <span class="fragment">veo</span>
+            <span class="fragment">,</span>
+            <span class="fragment">y</span>
+            <span class="fragment">necesito</span>
+            <span class="fragment">escucharte</span>
+            <span class="fragment">pero</span>
+            <span class="fragment">no</span>
+            <span class="fragment">te</span>
+            <span class="fragment">escucho</span>
+            <span class="fragment">,</span>
+            
+            <span class="line-break"></span>
+
+            <span class="fragment">y</span>
+            <span class="fragment">necesito</span>
+            <span class="fragment">tocarte</span>
+            <span class="fragment">pero</span>
+            <span class="fragment">no</span>
+            <span class="fragment">te</span>
+            <span class="fragment">toco</span>
+            <span class="fragment">y</span>
+            <span class="fragment">necesito</span>
+            <span class="fragment">pensarte</span>
+            <span class="fragment">y</span>
+            <span class="fragment">es</span>
+            <span class="fragment">lo</span>
+            <span class="fragment">único</span>
+            <span class="fragment">que</span>
+            <span class="fragment">hago</span>
+            <span class="fragment">.</span>
+
+            <span class="line-break"></span>
+            <span class="line-break"></span>
+
+            <span class="fragment">Por</span>
+            <span class="fragment">fin</span>
+            <span class="fragment">encontré</span>
+            <span class="fragment">algo</span>
+            <span class="fragment">que</span>
+            <span class="fragment">quiero</span>
+            <span class="fragment">proteger</span>
+            <span class="fragment">...</span>
+            <span class="fragment">eres</span>
+            <span class="fragment">tú</span>
+            <span class="fragment heart">❤️</span>
+
+            <span class="line-break"></span>
+            <span class="line-break"></span>
+            
+            <span class="fragment">Vivirás</span>
+            <span class="fragment">en</span>
+            <span class="fragment">paz</span>
+            <span class="fragment">en</span>
+            <span class="fragment">tu</span>
+            <span class="fragment">corazón</span>
+            <span class="fragment">si</span>
+            <span class="fragment">encuentras</span>
+            <span class="fragment">a</span>
+            <span class="fragment">alguien</span>
+            <span class="fragment">que</span>
+            <span class="fragment">te</span>
+            <span class="fragment">ame</span>
+            <span class="fragment">por</span>
+            <span class="fragment">lo</span>
+            <span class="fragment">que</span>
+            <span class="fragment">realmente</span>
+            <span class="fragment">eres</span>
+            <span class="fragment">.</span>
+        </div>
+    </div>
+
+    <script>
+        const fragments = document.querySelectorAll('.fragment');
+        let isPlaying = false;
+        let currentIndex = 0;
+        let timeoutId;
+
+        function showNext() {
+            if (currentIndex < fragments.length && isPlaying) {
+                fragments[currentIndex].classList.add('show');
+                currentIndex++;
+                // Velocidad lenta y mágica
+                timeoutId = setTimeout(showNext, 450); 
+            }
+        }
+
+        document.body.addEventListener('click', function() {
+            isPlaying = !isPlaying;
+            
+            if (isPlaying) {
+                showNext();
+            } else {
+                clearTimeout(timeoutId);
+            }
+        });
+    </script>
+
+</body>
+  </html>
+  
