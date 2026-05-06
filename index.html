@@ -12,44 +12,27 @@
         }
 
         body {
-            font-family: 'Georgia', 'Times New Roman', serif;
-            overflow: hidden;
+            font-family: 'Georgia', serif;
             color: #fff8e7;
+            overflow: hidden;
         }
 
-        /* ✅ IMAGEN QUE SÍ FUNCIONA EN GITHUB */
-        .background {
+        /* 🖼️ FONDO SIMPLE Y DIRECTO */
+        .fondo {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100vh;
-            background-image: url('https://w.wallhaven.cc/full/d5/wallhaven-d5g381.jpg');
+            /* CAMBIA ESTO POR EL NOMBRE DE TU IMAGEN */
+            background-image: url('tu-imagen.jpg');
             background-size: cover;
             background-position: center;
-            filter: brightness(0.7) contrast(1.1) sepia(0.1);
-            z-index: -2;
-        }
-
-        /* Efecto de luz mágica flotando */
-        .light-effect {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100vh;
-            background: radial-gradient(circle at 30% 20%, rgba(255, 223, 186, 0.25) 0%, transparent 40%),
-                        radial-gradient(circle at 70% 80%, rgba(186, 223, 255, 0.2) 0%, transparent 40%);
+            filter: brightness(0.6);
             z-index: -1;
-            animation: glow 10s ease-in-out infinite alternate;
         }
 
-        @keyframes glow {
-            from { opacity: 0.6; transform: scale(1); }
-            to { opacity: 1; transform: scale(1.05); }
-        }
-
-        .content {
+        .contenido {
             width: 100%;
             height: 100vh;
             display: flex;
@@ -58,38 +41,32 @@
             padding: 2rem;
         }
 
-        .text-container {
-            max-width: 800px;
+        .texto {
             font-size: 1.8rem;
             line-height: 1.8;
             text-align: center;
-            text-shadow: 0 0 15px rgba(0,0,0,0.9), 0 0 20px rgba(255, 255, 255, 0.4);
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.9);
         }
 
-        .fragment {
+        .fragmento {
             display: inline-block;
             opacity: 0;
-            transform: translateY(30px) scale(0.95);
-            transition: all 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            transform: translateY(25px);
+            transition: all 1s ease;
         }
 
-        .fragment.show {
+        .fragmento.aparecer {
             opacity: 1;
-            transform: translateY(0) scale(1);
+            transform: translateY(0);
         }
 
-        .line-break {
+        .salto {
             display: block;
             height: 0.8em;
         }
 
-        .heart {
-            color: #ffb6c1;
-            text-shadow: 0 0 10px #ff69b4;
-        }
-
         @media (max-width: 768px) {
-            .text-container {
+            .texto {
                 font-size: 1.4rem;
             }
         }
@@ -97,112 +74,109 @@
 </head>
 <body>
 
-    <div class="background"></div>
-    <div class="light-effect"></div>
+    <div class="fondo"></div>
 
-    <div class="content">
-        <div class="text-container" id="text">
-            <span class="fragment">necesito</span>
-            <span class="fragment">verte</span>
-            <span class="fragment">pero</span>
-            <span class="fragment">no</span>
-            <span class="fragment">te</span>
-            <span class="fragment">veo</span>
-            <span class="fragment">,</span>
-            <span class="fragment">y</span>
-            <span class="fragment">necesito</span>
-            <span class="fragment">escucharte</span>
-            <span class="fragment">pero</span>
-            <span class="fragment">no</span>
-            <span class="fragment">te</span>
-            <span class="fragment">escucho</span>
-            <span class="fragment">,</span>
+    <div class="contenido">
+        <div class="texto" id="cajaTexto">
+            <span class="fragmento">necesito</span>
+            <span class="fragmento">verte</span>
+            <span class="fragmento">pero</span>
+            <span class="fragmento">no</span>
+            <span class="fragmento">te</span>
+            <span class="fragmento">veo</span>
+            <span class="fragmento">,</span>
+            <span class="fragmento">y</span>
+            <span class="fragmento">necesito</span>
+            <span class="fragmento">escucharte</span>
+            <span class="fragmento">pero</span>
+            <span class="fragmento">no</span>
+            <span class="fragmento">te</span>
+            <span class="fragmento">escucho</span>
+            <span class="fragmento">,</span>
+
+            <span class="salto"></span>
+
+            <span class="fragmento">y</span>
+            <span class="fragmento">necesito</span>
+            <span class="fragmento">tocarte</span>
+            <span class="fragmento">pero</span>
+            <span class="fragmento">no</span>
+            <span class="fragmento">te</span>
+            <span class="fragmento">toco</span>
+            <span class="fragmento">y</span>
+            <span class="fragmento">necesito</span>
+            <span class="fragmento">pensarte</span>
+            <span class="fragmento">y</span>
+            <span class="fragmento">es</span>
+            <span class="fragmento">lo</span>
+            <span class="fragmento">único</span>
+            <span class="fragmento">que</span>
+            <span class="fragmento">hago</span>
+            <span class="fragmento">.</span>
+
+            <span class="salto"></span>
+            <span class="salto"></span>
+
+            <span class="fragmento">Por</span>
+            <span class="fragmento">fin</span>
+            <span class="fragmento">encontré</span>
+            <span class="fragmento">algo</span>
+            <span class="fragmento">que</span>
+            <span class="fragmento">quiero</span>
+            <span class="fragmento">proteger</span>
+            <span class="fragmento">...</span>
+            <span class="fragmento">eres</span>
+            <span class="fragmento">tú</span>
+            <span class="fragmento">❤️</span>
+
+            <span class="salto"></span>
+            <span class="salto"></span>
             
-            <span class="line-break"></span>
-
-            <span class="fragment">y</span>
-            <span class="fragment">necesito</span>
-            <span class="fragment">tocarte</span>
-            <span class="fragment">pero</span>
-            <span class="fragment">no</span>
-            <span class="fragment">te</span>
-            <span class="fragment">toco</span>
-            <span class="fragment">y</span>
-            <span class="fragment">necesito</span>
-            <span class="fragment">pensarte</span>
-            <span class="fragment">y</span>
-            <span class="fragment">es</span>
-            <span class="fragment">lo</span>
-            <span class="fragment">único</span>
-            <span class="fragment">que</span>
-            <span class="fragment">hago</span>
-            <span class="fragment">.</span>
-
-            <span class="line-break"></span>
-            <span class="line-break"></span>
-
-            <span class="fragment">Por</span>
-            <span class="fragment">fin</span>
-            <span class="fragment">encontré</span>
-            <span class="fragment">algo</span>
-            <span class="fragment">que</span>
-            <span class="fragment">quiero</span>
-            <span class="fragment">proteger</span>
-            <span class="fragment">...</span>
-            <span class="fragment">eres</span>
-            <span class="fragment">tú</span>
-            <span class="fragment heart">❤️</span>
-
-            <span class="line-break"></span>
-            <span class="line-break"></span>
-            
-            <span class="fragment">Vivirás</span>
-            <span class="fragment">en</span>
-            <span class="fragment">paz</span>
-            <span class="fragment">en</span>
-            <span class="fragment">tu</span>
-            <span class="fragment">corazón</span>
-            <span class="fragment">si</span>
-            <span class="fragment">encuentras</span>
-            <span class="fragment">a</span>
-            <span class="fragment">alguien</span>
-            <span class="fragment">que</span>
-            <span class="fragment">te</span>
-            <span class="fragment">ame</span>
-            <span class="fragment">por</span>
-            <span class="fragment">lo</span>
-            <span class="fragment">que</span>
-            <span class="fragment">realmente</span>
-            <span class="fragment">eres</span>
-            <span class="fragment">.</span>
+            <span class="fragmento">Vivirás</span>
+            <span class="fragmento">en</span>
+            <span class="fragmento">paz</span>
+            <span class="fragmento">en</span>
+            <span class="fragmento">tu</span>
+            <span class="fragmento">corazón</span>
+            <span class="fragmento">si</span>
+            <span class="fragmento">encuentras</span>
+            <span class="fragmento">a</span>
+            <span class="fragmento">alguien</span>
+            <span class="fragmento">que</span>
+            <span class="fragmento">te</span>
+            <span class="fragmento">ame</span>
+            <span class="fragmento">por</span>
+            <span class="fragmento">lo</span>
+            <span class="fragmento">que</span>
+            <span class="fragmento">realmente</span>
+            <span class="fragmento">eres</span>
+            <span class="fragmento">.</span>
         </div>
     </div>
 
     <script>
-        const fragments = document.querySelectorAll('.fragment');
-        let isPlaying = false;
-        let currentIndex = 0;
-        let timeoutId;
+        const palabras = document.querySelectorAll('.fragmento');
+        let reproduciendo = false;
+        let indice = 0;
+        let tiempo;
 
-        function showNext() {
-            if (currentIndex < fragments.length && isPlaying) {
-                fragments[currentIndex].classList.add('show');
-                currentIndex++;
-                timeoutId = setTimeout(showNext, 450); 
+        function mostrarSiguiente() {
+            if (indice < palabras.length && reproduciendo) {
+                palabras[indice].classList.add('aparecer');
+                indice++;
+                tiempo = setTimeout(mostrarSiguiente, 400);
             }
         }
 
         document.body.addEventListener('click', function() {
-            isPlaying = !isPlaying;
-            
-            if (isPlaying) {
-                showNext();
+            reproduciendo = !reproduciendo;
+            if (reproduciendo) {
+                mostrarSiguiente();
             } else {
-                clearTimeout(timeoutId);
+                clearTimeout(tiempo);
             }
         });
     </script>
 
 </body>
-    </html>
-    
+</html>
